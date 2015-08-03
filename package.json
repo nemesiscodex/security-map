@@ -1,0 +1,27 @@
+{
+  "name": "security_map",
+  "version": "1.0.0",
+  "description": "Crowd-sourcing security heat-map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nemesiscodex/security-map.git"
+  },
+  "keywords": [
+    "security",
+    "heat-map",
+    "crowd-sourcing"
+  ],
+  "author": "Julio Reyes <nemesiscodex@gmail.com>",
+  "license": "LGPL-V3",
+  "bugs": {
+    "url": "https://github.com/nemesiscodex/security-map/issues"
+  },
+  "homepage": "https://github.com/nemesiscodex/security-map",
+  "dependencies": {
+    "bower": "^1.4.1"
+  }
+}
