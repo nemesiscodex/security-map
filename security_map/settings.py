@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangobower',
     'apps.map'
 )
 
@@ -101,3 +102,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+)
+
+BOWER_COMPONENTS_ROOT = os.path.join(os.path.join(BASE_DIR, 'security_map'), 'bower')
+
+BOWER_INSTALLED_APPS = (
+    'angularjs#1.4.3',
+    'semantic-ui#2.0.7',
+    'leaflet#1.0.0-beta.1',
+    'heatmap.js-amd#0b1014c06b'
+)
