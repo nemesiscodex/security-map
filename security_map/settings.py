@@ -117,3 +117,5 @@ BOWER_INSTALLED_APPS = (
     'leaflet#1.0.0-beta.1',
     'heatmap.js-amd#0b1014c06b'
 )
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
