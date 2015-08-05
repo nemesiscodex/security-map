@@ -3,3 +3,5 @@ venv/
 .idea/
 staticfiles/
 node_modules/
+db.sqlite3
+vendor/
