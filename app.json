@@ -1,0 +1,7 @@
+{
+  "name": "Security-map",
+  "description": "A Security zone heatmap - crowdsourcing",
+  "repository": "https://github.com/nemesiscodex/security-map",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["map", "security", "crowdsourcing"]
+}
