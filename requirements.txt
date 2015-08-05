@@ -1,5 +1,4 @@
 Django==1.8.3
-django-bower==5.0.4
 gunicorn==19.3.0
 optional-django==0.1.0
 psycopg2==2.6.1

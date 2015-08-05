@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "scripts": {
+    "postinstall": "bower cache clean && bower install"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/nemesiscodex/security-map.git"
