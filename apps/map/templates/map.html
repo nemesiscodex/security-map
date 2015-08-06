@@ -43,11 +43,11 @@
             margin-right: 0 !important;
         }
 
-        .first-menu, .second-menu{
+        .first-menu, .second-menu {
             margin: 0 !important;
         }
 
-        .hidden{
+        .hidden {
             display: none !important;
         }
 
@@ -78,6 +78,25 @@
                 </a>
 
             </div>
+        </div>
+    </div>
+    <div class="ui modal about-menu">
+
+        <div class="header">
+            About
+        </div>
+        <div class="ui stackable one column grid">
+            <div class="column center aligned" style="padding-bottom: 0 !important;">
+                <div class="github-card" data-github="nemesiscodex/security-map" data-width="300" data-height=""
+                     data-theme="medium"></div>
+                <div class="ui vertical fluid menu">
+                    <a class="item close">
+                        <i class="check icon"></i> OK
+                    </a>
+                </div>
+            </div>
+
+            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
         </div>
     </div>
     <div class="ui small modal filter-menu">
@@ -117,7 +136,7 @@
                 <a class="item">
                     <i class="help circle icon"></i> Help
                 </a>
-                <a class="item">
+                <a class="item" id="about">
                     <i class="info circle icon"></i> About
                 </a>
             </div>
@@ -131,6 +150,7 @@
     <script>
 
         $('.ui.modal.principal-menu').modal({transition: 'fly left'}).modal('attach events', '.principal .item:first-child', 'show');
+        $('.ui.modal.about-menu').modal({transition: 'fly left'}).modal('attach events', '#about', 'show');
         $('.ui.modal.filter-menu').modal({transition: 'fly left'}).modal('attach events', '#principal-filter', 'show');
 
         $('.ui.overlay').visibility({
@@ -196,7 +216,7 @@
             "Map Type": {}
         };
 
-        var options = { exclusiveGroups: ["Base Layer"] };
+        var options = {exclusiveGroups: ["Base Layer"]};
 
         var layerControl = L.control.groupedLayers({}, groupedOverlays, options);
         map.addControl(layerControl);
