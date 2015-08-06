@@ -43,10 +43,18 @@
             margin-right: 0 !important;
         }
 
+        .first-menu, .second-menu{
+            margin: 0 !important;
+        }
+
+        .hidden{
+            display: none !important;
+        }
+
     </style>
 
     <!-- start modal -->
-    <div class="ui small modal">
+    <div class="ui small modal principal-menu">
 
         <div class="header">
             Options
@@ -56,8 +64,37 @@
                 <a class="item">
                     <i class="share icon"></i> Share
                 </a>
+                <a class="item" id="principal-filter">
+                    <i class="filter icon"></i> Filter
+                </a>
                 <a class="item">
                     <i class="table icon"></i> Summary
+                </a>
+                <a class="item">
+                    <i class="translate icon"></i> Language
+                </a>
+                <a class="item close">
+                    <i class="close icon"></i> Close
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="ui small modal filter-menu">
+
+        <div class="header">
+            filter
+        </div>
+        <div>
+            <div class="ui vertical fluid menu">
+                <a class="item">
+                    <i class="filter icon"></i> Filter 1
+                </a>
+                <a class="item">
+                    <i class="filter icon"></i> Filter 2
+                </a>
+                <a class="item">
+                    <i class="filter icon"></i> Filter 3
                 </a>
                 <a class="item close">
                     <i class="close icon"></i> Close
@@ -93,7 +130,8 @@
 {% block scripts %}
     <script>
 
-        $('.ui.modal').modal('attach events', '.principal .item:first-child', 'show');
+        $('.ui.modal.principal-menu').modal({transition: 'fly left'}).modal('attach events', '.principal .item:first-child', 'show');
+        $('.ui.modal.filter-menu').modal({transition: 'fly left'}).modal('attach events', '#principal-filter', 'show');
 
         $('.ui.overlay').visibility({
             type: 'fixed',
@@ -145,16 +183,22 @@
                     maxZoom: 18
                 });
 
-        var baseLayers = {
-            "Open Street Map - Mapnik": osmMapnikLayer,
-            "Open Street Map - Blanco y Negro": osmBWLayer,
-            "Open Street Map - DE": osmDELayer,
-            "Open Street Map - HOT": osmHOTLayer,
-            "ThunderForest - Open Cycle Map": thunderforestOpenCycleMapLayer,
-            "CartoDB - Positron": cartodbPositronLayer
+
+        var groupedOverlays = {
+            "Base Layer": {
+                "Open Street Map - Mapnik": osmMapnikLayer,
+                "Open Street Map - Blanco y Negro": osmBWLayer,
+                "Open Street Map - DE": osmDELayer,
+                "Open Street Map - HOT": osmHOTLayer,
+                "ThunderForest - Open Cycle Map": thunderforestOpenCycleMapLayer,
+                "CartoDB - Positron": cartodbPositronLayer
+            },
+            "Map Type": {}
         };
 
-        var layerControl = L.control.groupedLayers(baseLayers, {}, {});
+        var options = { exclusiveGroups: ["Base Layer"] };
+
+        var layerControl = L.control.groupedLayers({}, groupedOverlays, options);
         map.addControl(layerControl);
 
         osmMapnikLayer.addTo(map);
