@@ -1,10 +1,59 @@
 {% extends "base.html" %}
 {% block body %}
-    <div class="ui container" id="map" style="height: 100%"></div>
+    <style>
+        /* TODO: map-style.css */
+        .ui.fixed.sticky + p {
+            margin-top: 39px;
+        }
+
+        #map {
+            height: 100%
+        }
+
+        .overlay {
+            background-color: #FFFFFF;
+            padding: 0.5em;
+            z-index: 1000;
+            left: 50px;
+            top: 10px;
+            border-radius: 6px;
+            border: 2px solid rgba(0,0,0,0.2);
+        }
+
+        /* change style */
+        .fixed.overlay {
+            position: fixed;
+            padding: 0.3em;
+        }
+    </style>
+    <div class="overlay fixed">
+        <div class="ui secondary small menu">
+            <a class="item">
+                <i class="add circle icon"></i> New Event
+            </a>
+            <a class="item">
+                <i class="help circle icon"></i> Help
+            </a>
+            <a class="item">
+                <i class="info circle icon"></i> About
+            </a>
+        </div>
+    </div>
+    <div id="map">
+
+
+    </div>
+
 {% endblock %}
 {% block scripts %}
     <script>
 
+
+        $('.ui.overlay').visibility({
+            type: 'fixed',
+            offset: 15 // give some space from top of screen
+        })
+        ;
         var map = L.map('map', {
             minZoom: 7,
             maxBounds: [
