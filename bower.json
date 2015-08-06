@@ -9,7 +9,7 @@
   "keywords": [
     "map"
   ],
-  "license": "LGPL-V2",
+  "license": "LGPL-V3",
   "dependencies": {
     "angularjs": "1.4.3",
     "semantic-ui": "2.0.7",
