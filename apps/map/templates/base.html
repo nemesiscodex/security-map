@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <title>{% block title %}Security Map{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "vendor/semantic-ui/dist/semantic.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/leaflet/dist/leaflet.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.css" %}">
+</head>
+<body>
+{% block body %}
+
+{% endblock %}
+
+
+{% block scripts_included %}
+    <script type="application/javascript" src="{% static "vendor/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "vendor/semantic-ui/dist/semantic.min.js" %}"></script>
+    <script src="{% static "vendor/angularjs/angular.min.js" %}"></script>
+    <script src="{% static "vendor/leaflet/dist/leaflet.js" %}"></script>
+    <script src="{% static "vendor/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.js" %}"></script>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+</body>
+</html>

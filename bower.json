@@ -13,7 +13,8 @@
   "dependencies": {
     "angularjs": "1.4.3",
     "semantic-ui": "2.0.7",
-    "leaflet": "1.0.0-beta.1",
-    "heatmap.js-amd": "0b1014c06b"
+    "leaflet": "0.7.3",
+    "heatmap.js-amd": "0b1014c06b",
+    "leaflet-groupedlayercontrol": "~0.3.1"
   }
 }
