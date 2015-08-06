@@ -2,52 +2,98 @@
 {% block body %}
     <style>
         /* TODO: map-style.css */
-        .ui.fixed.sticky + p {
-            margin-top: 39px;
-        }
-
         #map {
             height: 100%
         }
 
-        .overlay {
+        .overlay.principal {
             background-color: #FFFFFF;
             padding: 0.5em;
             z-index: 1000;
-            left: 50px;
             top: 10px;
             border-radius: 6px;
-            border: 2px solid rgba(0,0,0,0.2);
+            border: 2px solid rgba(0, 0, 0, 0.2);
         }
 
         /* change style */
-        .fixed.overlay {
+        .fixed.overlay.principal {
             position: fixed;
             padding: 0.3em;
+            margin: 0px 10px 10px 10px;
         }
+
+        .leaflet-right {
+            right: auto;
+            left: 10px;
+        }
+
+        .leaflet-top.leaflet-right {
+            top: 74px;
+        }
+
+        .leaflet-touch .leaflet-control-layers-toggle {
+            width: 31px;
+        }
+
+        .leaflet-top .leaflet-control {
+            margin-top: 70px !important;
+        }
+
+        .sidebar.icon, .ui.secondary.menu .item:first-child {
+            margin-right: 0 !important;
+        }
+
     </style>
-    <div class="overlay fixed">
-        <div class="ui secondary small menu">
-            <a class="item">
-                <i class="add circle icon"></i> New Event
-            </a>
-            <a class="item">
-                <i class="help circle icon"></i> Help
-            </a>
-            <a class="item">
-                <i class="info circle icon"></i> About
-            </a>
+
+    <!-- start modal -->
+    <div class="ui small modal">
+
+        <div class="header">
+            Options
+        </div>
+        <div>
+            <div class="ui vertical fluid menu">
+                <a class="item">
+                    <i class="share icon"></i> Share
+                </a>
+                <a class="item">
+                    <i class="table icon"></i> Summary
+                </a>
+                <a class="item close">
+                    <i class="close icon"></i> Close
+                </a>
+
+            </div>
         </div>
     </div>
+    <!-- end modal-->
+
     <div id="map">
-
-
+        <div class="overlay fixed principal">
+            <div class="ui secondary small menu">
+                <a class="item">
+                    <i class="sidebar icon"></i>
+                </a>
+                <a class="item">
+                    <i class="add circle icon"></i> Event
+                </a>
+                <a class="item">
+                    <i class="help circle icon"></i> Help
+                </a>
+                <a class="item">
+                    <i class="info circle icon"></i> About
+                </a>
+            </div>
+        </div>
     </div>
+
+
 
 {% endblock %}
 {% block scripts %}
     <script>
 
+        $('.ui.modal').modal('attach events', '.principal .item:first-child', 'show');
 
         $('.ui.overlay').visibility({
             type: 'fixed',
